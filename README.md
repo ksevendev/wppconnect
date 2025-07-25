@@ -69,7 +69,7 @@ npm  install  -g  yarn  pm2
 ```
   
 
-📂  Clonar  e  Executar  o  Instalador
+# 📂  Clonar  e  Executar  o  Instalador
 
 
 ```
