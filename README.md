@@ -102,43 +102,43 @@ chmod  +x  wppconnect.sh
 
 ### ⚙️  O  que  cada  opção  faz?
 
-1.  Instalar  Backend  +  Frontend
+1.  **Instalar  Backend  +  Frontend**
 
-		Clona  os  repositórios  oficiais (seu fork)
-		Instala  dependências  com  yarn
-		Configura  o  backend  para  rodar  via  PM2
-		Configura  frontend  para  rodar  na  porta  80 (HTTP)
-		Aplica  configurações  básicas  iniciais
+	Clona  os  repositórios  oficiais (seu fork)
+	Instala  dependências  com  yarn
+	Configura  o  backend  para  rodar  via  PM2
+	Configura  frontend  para  rodar  na  porta  80 (HTTP)
+	Aplica  configurações  básicas  iniciais
   
-2.  Atualizar
+2.  **Atualizar**
 
-		Dá  pull  nos  repositórios  backend  e  frontend
-		Atualiza  dependências
-		Reinicia  serviços  PM2  automaticamente
+	Dá  pull  nos  repositórios  backend  e  frontend
+	Atualiza  dependências
+	Reinicia  serviços  PM2  automaticamente
 
-3.  Configurações
+3.  **Configurações**
 
-		Menu  para  editar:
-			Token  da  API
-			Porta  do  backend
-			Domínio  para  acessar  o  frontend
+	***Menu  para  editar:***
+		Token  da  API
+		Porta  do  backend
+		Domínio  para  acessar  o  frontend
 
-4.  Desinstalar
+4.  **Desinstalar**
 		
 		Para  serviços
 		Remove  arquivos  do  backend  e  frontend
 		Limpa  configurações  e  PM2 
 
-5.  Configurar  HTTPS  com  Nginx
+5.  **Configurar  HTTPS  com  Nginx**
 		
-		Instala  e  configura  Nginx
-		Gera  certificado  Let's Encrypt (via Certbot)
-		Configura proxy reverso HTTPS para backend e frontend
+	Instala  e  configura  Nginx
+	Gera  certificado  Let's Encrypt (via Certbot)
+	Configura proxy reverso HTTPS para backend e frontend
 
-6. Editar Parâmetros Avançados
+6. **Editar Parâmetros Avançados**
 		
-		Permite ajustes manuais em arquivos de configuração
-		Configurações extras do WPPConnect
+	Permite ajustes manuais em arquivos de configuração
+	Configurações extras do WPPConnect
 
 ### 🔒 Segurança
 
@@ -185,9 +185,14 @@ Frontend geralmente roda no navegador via domínio configurado (porta 80 ou 443)
  
 ### ⚠️ Dicas finais
 
-	Sempre faça backup do seu token e dados importantes
-	Para customizações, faça fork dos repositórios backend e frontend
-	Use o menu para facilitar atualizações e configurações
-	Mantenha seu sistema atualizado para evitar bugs e vulnerabilidades
----
-Última atualização: 24/07/2025 21:00 (America/Sao_Paulo)
+Sempre faça backup do seu token e dados importantes
+Para customizações, faça fork dos repositórios backend e frontend
+Use o menu para facilitar atualizações e configurações
+Mantenha seu sistema atualizado para evitar bugs e vulnerabilidades
+
+## 📝 Referências e Recursos
+
+-   [WPPConnect Docs](https://wppconnect.io/pt-BR/docs/)
+-   [WPPConnect Server](https://github.com/ksevendev/wppconnect-server)
+-   [WPPConnect Frontend](https://github.com/ksevendev/wppconnect-frontend))
+
