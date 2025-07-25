@@ -194,5 +194,5 @@ Mantenha seu sistema atualizado para evitar bugs e vulnerabilidades
 
 -   [WPPConnect Docs](https://wppconnect.io/pt-BR/docs/)
 -   [WPPConnect Server](https://github.com/ksevendev/wppconnect-server)
--   [WPPConnect Frontend](https://github.com/ksevendev/wppconnect-frontend))
+-   [WPPConnect Frontend](https://github.com/ksevendev/wppconnect-frontend)
 
