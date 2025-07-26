@@ -25,4 +25,9 @@ FRONTEND_PORT=80
 
 # 📲 Notificações
 TELEGRAM_BOT_TOKEN="5731858033:AAFaWPvl9efpDGlx418Ea-ULox9Gid-An08"
-TELEGRAM_CHAT_ID="5731858033"
+
+# Enviar para grupo E para o usuário (você)
+TELEGRAM_CHAT_IDS=(
+  "-1001825328476"  # Grupo
+  "5387405958"      # Você
+)

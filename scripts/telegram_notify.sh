@@ -20,33 +20,49 @@ is_telegram_bot_active() {
   curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" | grep -q '"ok":true'
 }
 
-# === ENVIO ===
+# === ESCAPE PARA MARKDOWN ===
+escape_markdown() {
+  echo "$1" | sed -e 's/\*/\\*/g' \
+                  -e 's/_/\\_/g' \
+                  -e 's/\[/\\[/g' \
+                  -e 's/\]/\\]/g' \
+                  -e 's/(/\\(/g' \
+                  -e 's/)/\\)/g' \
+                  -e 's/`/\\`/g' \
+                  -e 's/>/\\>/g' \
+                  -e "s/'/\\'/g"
+}
+
+# === ENVIO PARA TODOS ===
 send_telegram_message() {
-  local TITLE="$1"
-  local MESSAGE="${2:-}"  # ← Se $2 não for fornecido, assume string vazia
+  local TITLE="${1:-"Notificação"}"
+  local MESSAGE="${2:-""}"
 
   if is_telegram_bot_active; then
-    local PAYLOAD
+    local ESCAPED_TITLE ESCAPED_MESSAGE PAYLOAD
+    ESCAPED_TITLE=$(escape_markdown "$TITLE")
+    ESCAPED_MESSAGE=$(escape_markdown "$MESSAGE")
 
-    if [[ -n "$MESSAGE" ]]; then
-      PAYLOAD="*$TITLE*\n\n$MESSAGE\n\n_Sent by: $SENDER_NAME_"
+    if [[ -n "$ESCAPED_MESSAGE" ]]; then
+      PAYLOAD="*$ESCAPED_TITLE*\n\n$ESCAPED_MESSAGE\n\n_Sent by: $SENDER_NAME_"
     else
-      PAYLOAD="*$TITLE*\n\n_Sent by: $SENDER_NAME_"
+      PAYLOAD="*$ESCAPED_TITLE*\n\n_Sent by: $SENDER_NAME_"
     fi
 
-    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
-      -d chat_id="$TELEGRAM_CHAT_ID" \
-      -d text="$PAYLOAD" \
-      -d parse_mode="Markdown" >/dev/null
+    for CHAT_ID in "${TELEGRAM_CHAT_IDS[@]}"; do
+      curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
+        --data-urlencode "chat_id=$CHAT_ID" \
+        --data-urlencode "text=$PAYLOAD" \
+        --data-urlencode "parse_mode=Markdown" >/dev/null
+    done
 
-    echo "[TELEGRAM] Mensagem enviada com sucesso!"
+    echo "[TELEGRAM] Mensagem enviada para todos os destinos com sucesso!"
   else
     echo "[TELEGRAM] Bot inativo ou token inválido."
   fi
 }
 
-
 # === EXECUÇÃO DIRETA ===
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-  send_telegram_message "$1" "$2"
+  send_telegram_message "${1:-"Mensagem sem título"}" "${2:-""}"
 fi
