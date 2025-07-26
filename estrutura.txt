@@ -1,0 +1,18 @@
+Listagem de arquivos
+C:.
+|   install.sh
+|   LICENSE
+|   README.md
+|
+\---scripts
+        config.sh
+        install_backend.sh
+        install_frontend.sh
+        setup_nginx.sh
+        set_config.sh
+        uninstall.sh
+        update.sh
+        update_backend.sh
+        update_frontend.sh
+        wppconnect.sh
+        
