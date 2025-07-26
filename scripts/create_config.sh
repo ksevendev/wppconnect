@@ -65,10 +65,17 @@ ask_or_arg FRONTEND_PORT      "⚙️ Porta do frontend"                     "80
 ask_or_arg TELEGRAM_BOT_TOKEN "🤖 Token do Bot Telegram"                 "SEU_TOKEN_AQUI"
 ask_or_arg TELEGRAM_CHAT_ID   "💬 Chat ID do Telegram"                   "SEU_CHAT_ID"
 
+
+if [[ -f "$CONFIG_FILE" ]]; then
+  read -p "⚠️ O arquivo config.sh já existe. Deseja sobrescrever? (s/N): " confirm
+  [[ "$confirm" =~ ^[sS]$ ]] || exit 0
+fi
+
 # ✍️ Criação do arquivo config.sh
 cat <<EOF > "$CONFIG_FILE"
 #!/bin/bash
 # config.sh — Variáveis globais de configuração do WPPConnect
+# Autor: K'Seven 🦊
 # Gerado automaticamente por create_config.sh 🦊
 
 # 🔧 Nome do processo no PM2
@@ -82,7 +89,7 @@ USE_HTTPS=$USE_HTTPS
 SECRET_KEY="$SECRET_KEY"
 deviceName="WppConnect"
 poweredBy="WPPConnect-Server"
-linkPreviewApiServers=null
+linkPreviewApiServers="null"
 
 # 🔒 Segurança
 JWT_SECRET="$JWT_SECRET"
