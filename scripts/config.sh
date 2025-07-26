@@ -10,6 +10,7 @@ APP_DOMAIN="wpp.kseven.com.br"
 USE_HTTPS=true
 
 # WPP Server
+SENDER_NAME_=WppConnect
 SECRET_KEY="sua-chave-secreta-super-segura"
 deviceName=WppConnect
 poweredBy=WPPConnect-Server
@@ -24,4 +25,4 @@ FRONTEND_PORT=80
 
 # 📲 Notificações
 TELEGRAM_BOT_TOKEN="5731858033:AAFaWPvl9efpDGlx418Ea-ULox9Gid-An08"
-TELEGRAM_CHAT_ID="-1001825328476"
+TELEGRAM_CHAT_ID="5731858033"

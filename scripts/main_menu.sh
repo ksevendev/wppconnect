@@ -26,7 +26,9 @@ fi
 # Função segura para enviar mensagens Telegram se estiver habilitado
 send_telegram() {
   if $TELEGRAM_ENABLED; then
-    send_telegram_message "$1" "$2"
+    local TITLE="$1"
+    local MESSAGE="${2:-}"  # ← Se $2 não for fornecido, assume string vazia
+    send_telegram_message "$TITLE" "$MESSAGE"
   fi
 }
 
